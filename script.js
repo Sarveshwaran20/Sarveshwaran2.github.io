@@ -23,11 +23,15 @@ function moveBox() {
     if (posX <= 0 || posX + box.clientWidth >= roomWidth) {
         dx = -dx; // Reverse horizontal direction
         changeText(); // Change text
+        // Prevent sticking to the edge
+        posX = Math.max(0, Math.min(posX, roomWidth - box.clientWidth));
     }
 
     if (posY <= 0 || posY + box.clientHeight >= roomHeight) {
         dy = -dy; // Reverse vertical direction
         changeText(); // Change text
+        // Prevent sticking to the edge
+        posY = Math.max(0, Math.min(posY, roomHeight - box.clientHeight));
     }
 
     // Apply the new position
@@ -45,4 +49,12 @@ function changeText() {
 }
 
 // Start moving the box when the page loads
-window.onload = moveBox;
+window.onload = () => {
+    // Set the initial position in case room dimensions are not immediately available
+    posX = room.clientWidth / 2 - box.clientWidth / 2;
+    posY = room.clientHeight / 2 - box.clientHeight / 2;
+    box.style.left = posX + 'px';
+    box.style.top = posY + 'px';
+    moveBox();
+};
+
