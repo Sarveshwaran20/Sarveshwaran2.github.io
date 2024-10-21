@@ -9,6 +9,13 @@ body {
     align-items: center;
     height: 100vh;
     overflow: hidden;
+    animation: backgroundPulse 5s infinite alternate;
+}
+
+@keyframes backgroundPulse {
+    0% { background-color: #000; }
+    50% { background-color: #111; }
+    100% { background-color: #000; }
 }
 
 .haunted-room {
@@ -19,67 +26,36 @@ body {
     border: 2px solid #333;
     box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: roomGlow 3s infinite alternate;
 }
 
-.flickering-light {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    animation: flicker 0.1s infinite alternate;
-    pointer-events: none;
+@keyframes roomGlow {
+    0% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.3); }
+    100% { box-shadow: 0 0 60px rgba(255, 0, 0, 0.5); }
+}
+
+.spooky-text {
+    font-size: 2em;
+    text-align: center;
+    padding: 20px;
+    color: #f5f5f5;
+    animation: flicker 1.5s infinite alternate, textColorChange 4s infinite;
 }
 
 @keyframes flicker {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.05; }
-    100% { opacity: 0.3; }
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
-.old-furniture {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+@keyframes textColorChange {
+    0% { color: #f5f5f5; }
+    50% { color: #ff0000; }
+    100% { color: #f5f5f5; }
 }
 
-.note {
-    font-size: 1.3em;
-    color: #f5f5f5;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
-    background: rgba(0, 0, 0, 0.8);
-    padding: 15px;
-    border-radius: 5px;
-    animation: shake 1.5s infinite alternate;
-}
-
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-1px); }
-    100% { transform: translateX(1px); }
-}
-
-.ghost {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 200px;
-    background: url('https://via.placeholder.com/150x200/ffffff/000000?text=Ghost') no-repeat center center;
-    background-size: cover;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-audio {
-    display: none;
-}
 .bottom-link {
     position: absolute;
     bottom: 20px;
@@ -102,18 +78,4 @@ audio {
 
 .right-link {
     right: 20px;
-}
-.moving-box {
-    position: absolute; /* This is crucial for moving the box */
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    height: 100px;
-    background: rgba(255, 0, 0, 0.7);
-    border-radius: 10px;
-    text-align: center;
-    line-height: 100px;
-    transform: translate(-50%, -50%);
-    font-size: 1.2em;
-    color: #fff;
 }
