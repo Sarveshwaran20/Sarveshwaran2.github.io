@@ -2,7 +2,7 @@ const box = document.querySelector('.moving-box');
 const room = document.querySelector('.haunted-room');
 let dx = 2; // Horizontal speed
 let dy = 2; // Vertical speed
-const messages = ["Turn back now!", "You're not alone...", "Leave while you can!", "Something's watching...", "You're in danger!", "Get out!", "You're not welcome here!", "You're not safe here!","You're DOOMED","BOBA ghost is waiting for you"];
+const messages = ["Turn back now!", "You're not alone...", "Leave while you can!", "Something's watching...", "You're in danger!", "Get out!", "You're not welcome here!", "You're not safe here!","You're DOOMED","BOBA ghost is waiting for youWZQZ"];
 
 // Initialize position
 let posX = room.clientWidth / 2 - box.clientWidth / 2;
