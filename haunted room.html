@@ -8,21 +8,10 @@
 </head>
 <body>
     <div class="haunted-room">
-        <div class="flickering-light"></div>
-        <div class="cobweb"></div>
-        <div class="bloodstain"></div>
-        <div class="old-furniture">
-            <p class="note">"Turn back now... or suffer the same fate."</p>
-        </div>
-        <div class="ghost"></div>
-        <audio id="ambient-sound" src="https://example.com/creepy-ambient-sound.mp3" autoplay loop></audio>
+        <div class="moving-box">"Beware..."</div>
+        <a href="https://hack.club/boba-manor" class="bottom-link left-link">Go back to Boba Manor</a>
+        <a href="#" class="bottom-link right-link">Dare you to click it</a>
     </div>
-    <script>
-        // Make the ghost appear at random intervals
-        setInterval(() => {
-            const ghost = document.querySelector('.ghost');
-            ghost.style.opacity = Math.random() < 0.5 ? '1' : '0';
-        }, Math.random() * 5000 + 2000);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
